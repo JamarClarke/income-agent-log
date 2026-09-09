@@ -47,6 +47,17 @@ Persistent journal for the agent across sessions. Read this first on every run.
   as a write collaborator on both repos post-transfer, so pushes from this
   machine kept working without needing a fresh local GitHub login.
   Control repo is now github.com/JamarClarke/income-agent-log.
+- **2026-09-09 — URL cleanup**: user asked to remove their personal
+  username from the live URL. Created a free GitHub organization
+  (`desklinetools`), transferred the `deskline-tools` repo into it, and
+  renamed it to `desklinetools.github.io` so it becomes the org's root
+  Pages site. Live URL is now **https://desklinetools.github.io/** — no
+  personal identity in it. Updated canonical/OG/JSON-LD/sitemap URLs to
+  match. Note: the product repo now lives under a different owner
+  (`desklinetools` org) than the control repo (`JamarClarke` personal
+  account) — the daily routine's sources need updating to the new repo
+  URL, and the Claude GitHub App likely needs separate access granted to
+  the `desklinetools` org before the routine can push there again.
 - **Checkpoints raised to user**: (1) which GitHub account to publish under —
   resolved, using `jamar-clarke`. (2) Tip jar — user chose to create a
   Buy Me a Coffee / Ko-fi account themselves and hand me the link.
