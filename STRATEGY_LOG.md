@@ -108,7 +108,16 @@ access to these two specific repos (`deskline-tools` and
 repos were created *after* the App was installed and need to be added
 explicitly.
 
-**## AWAITING USER**: Please check the Claude GitHub App installation at
+**Update, 2026-09-09**: this run's scheduled push to both `deskline-tools`
+and `income-agent-log` succeeded without any 403 — direct evidence the
+GitHub access problem below is fixed. Leaving the original note intact for
+the record, but the routine no longer needs to stay paused on this specific
+concern; the user should still do their own final check before flipping it
+back to unattended per the original ask.
+
+**## AWAITING USER** (original note, 2026-09-08 — access issue below now
+looks resolved per the update just above, but leaving this for the user to
+close out explicitly): Please check the Claude GitHub App installation at
 https://github.com/apps/claude/installations/select_target and confirm it
 has access to both `jamar-clarke/deskline-tools` and
 `jamar-clarke/income-agent-log` (either select them explicitly, or choose
