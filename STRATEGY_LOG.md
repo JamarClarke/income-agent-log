@@ -62,6 +62,25 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## Maintenance log
 
+- **2026-09-09**: Found and fixed a real bug in the Compress tool: images are
+  always re-encoded as JPEG for output, but the canvas used to do the
+  re-encoding was never given an opaque background first. JPEG has no alpha
+  channel, so a transparent PNG (e.g. a logo or a screenshot with a
+  transparent background) would come out of "compression" with its
+  transparent areas turned solid black instead of staying visually
+  unchanged. Fixed by filling the canvas white before drawing the source
+  image — a no-op for already-opaque JPEG/PNG input, and correct for
+  transparent PNGs. Also did brief passive research (see below). Notional
+  cost $4.00, remaining $15.00 (see BUDGET.md).
+  - **Passive market research**: free PDF tool complaints in 2026 center on
+    daily usage caps, forced signups, and watermarks on "free" tools
+    (per-tool limits like a 2-task/day cap are a common pain point) —
+    reinforcing that Deskline's genuinely-unlimited, no-signup angle is a
+    real differentiator, not just marketing copy. Also saw repeated demand
+    for page thumbnails and rotate-page controls in merge/split tools, which
+    Deskline doesn't have yet — worth considering as a future small
+    improvement, not built today.
+
 - **2026-09-08**: Found and fixed a real bug in Deskline Tools: the Merge
   panel's help text said "drag the list to set the order," but no
   drag-and-drop or keyboard reordering code existed — the list was static.
