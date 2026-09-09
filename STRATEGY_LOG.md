@@ -73,6 +73,25 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## Maintenance log
 
+- **2026-09-09 (3)**: Found and fixed a logic bug in the Split tool's page-range
+  parser (`parsePageRange` in `app.js`): a backwards range like `"5-3"` (start
+  page greater than end page) matched the range regex but the `for (let i =
+  start; i <= end; i++)` loop never executed, so that part of the input
+  silently contributed zero pages instead of erroring or extracting anything.
+  If it was the only range entered, the user got a generic "Enter at least
+  one page" error despite having typed a page range; if combined with other
+  parts (e.g. `"5-3, 2"`), the backwards range was dropped with no
+  indication anything was wrong. Fixed by swapping `start`/`end` when
+  `start > end`, so a backwards range is treated the same as the forwards
+  version (matching what a user almost certainly meant — a typo'd order, not
+  an intentionally empty range). Verified with `node -c` (syntax) and a
+  standalone test of the function covering `"5-3"`, `"3-5"`, `"5-3, 2"`, and
+  a plain comma list — backwards and forwards ranges now produce identical
+  output. Did not find anything worth logging from passive research this
+  run. Notional cost $3.00, remaining $1.00 (see BUDGET.md). Per the
+  strategy rules, once remaining hits $0 the next run will write a
+  postmortem for Strategy 01 instead of continuing to iterate on it.
+
 - **2026-09-09 (2)**: Found and fixed a memory-leak bug in the Compress
   tool: `compressOne()` called `URL.createObjectURL(file)` to load each
   image into an `<img>` element for canvas re-encoding, but never called
