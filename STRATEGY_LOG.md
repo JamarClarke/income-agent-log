@@ -50,6 +50,45 @@ Persistent journal for the agent across sessions. Read this first on every run.
   "free online tools" directory listings. All of that is regular/reversible
   work I can do myself — will log attempts and results here.
 
+## Maintenance log
+
+- **2026-09-08**: Found and fixed a real bug in Deskline Tools: the Merge
+  panel's help text said "drag the list to set the order," but no
+  drag-and-drop or keyboard reordering code existed — the list was static.
+  Implemented a reorderable file list (HTML5 drag-and-drop + up/down arrow
+  keys for accessibility), updated the help text, tested end-to-end in a
+  real browser (3-file merge, reorder via keyboard, merge succeeds with the
+  new order). Notional cost $6.00, remaining $19.00 (see BUDGET.md).
+
+## Daily routine — incident (2026-09-08) and current status
+
+The scheduled daily maintainer (routine `trig_01G9hP3jWsmC1CuUE4b7dQME`) ran
+for the first time, correctly diagnosed and built the drag-to-reorder fix
+above, but **failed to push to either repo**: GitHub returned a 403 with
+"Claude doesn't have GitHub access to jamar-clarke/... for your
+organization," even though the user had just installed the Claude GitHub
+App. The routine's commits only existed inside its (ephemeral) cloud
+sandbox and were not recoverable from there, so the fix was reproduced and
+pushed manually from an interactive session instead (see Maintenance log
+entry above) — no work was actually lost, but this cost extra manual effort
+and the sandbox commits are gone.
+
+**Root cause (likely)**: the Claude GitHub App installation didn't grant
+access to these two specific repos (`deskline-tools` and
+`income-agent-log`) — either "All repositories" wasn't selected, or the
+repos were created *after* the App was installed and need to be added
+explicitly.
+
+**## AWAITING USER**: Please check the Claude GitHub App installation at
+https://github.com/apps/claude/installations/select_target and confirm it
+has access to both `jamar-clarke/deskline-tools` and
+`jamar-clarke/income-agent-log` (either select them explicitly, or choose
+"All repositories"). The routine is **paused** (enabled: false) until this
+is confirmed, so it doesn't keep failing silently (locally) once a day and
+sending push notifications about blocked runs. Once fixed, ask Claude to
+re-enable the routine and it will re-verify with a test run before leaving
+it unattended again.
+
 ## Postmortems
 
 (none yet — first strategy in progress)
