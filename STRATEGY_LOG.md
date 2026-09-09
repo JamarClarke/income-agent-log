@@ -37,6 +37,16 @@ Persistent journal for the agent across sessions. Read this first on every run.
   github.com/jamar-clarke/deskline-tools, GitHub Pages, free). All four tools
   tested end-to-end pre-deploy — merge, split (range + split-to-zip),
   compress, and images→PDF all pass.
+- **2026-09-09 — account migration**: user clarified their actual GitHub
+  identity is `JamarClarke`, not `jamar-clarke` (both are theirs, but
+  `JamarClarke` is the one to use going forward). Transferred both repos
+  (`deskline-tools` and `income-agent-log`) to `JamarClarke` via the GitHub
+  API. GitHub Pages settings carried over automatically. Live URL is now
+  **https://jamarclarke.github.io/deskline-tools/** (repo:
+  github.com/JamarClarke/deskline-tools). `jamar-clarke` was auto-retained
+  as a write collaborator on both repos post-transfer, so pushes from this
+  machine kept working without needing a fresh local GitHub login.
+  Control repo is now github.com/JamarClarke/income-agent-log.
 - **Checkpoints raised to user**: (1) which GitHub account to publish under —
   resolved, using `jamar-clarke`. (2) Tip jar — user chose to create a
   Buy Me a Coffee / Ko-fi account themselves and hand me the link.
