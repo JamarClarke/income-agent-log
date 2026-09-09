@@ -73,6 +73,28 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## Maintenance log
 
+- **2026-09-09 (2)**: Found and fixed a memory-leak bug in the Compress
+  tool: `compressOne()` called `URL.createObjectURL(file)` to load each
+  image into an `<img>` element for canvas re-encoding, but never called
+  `URL.revokeObjectURL()` on it. Every compressed image (and every retry)
+  permanently pinned a blob in memory for the rest of the page's life —
+  compressing a batch of 20+ images in one session would leak 20+ blob
+  URLs. Fixed by revoking the object URL in both the `onload` and
+  `onerror` handlers, right after the browser has decoded (or failed to
+  decode) the image — safe because the `<img>` retains the decoded bitmap
+  independently of the URL once loaded. Verified by re-reading the full
+  function and syntax-checking the file (`node -c app.js`); no other
+  `createObjectURL` call in the file was missing its matching revoke.
+  Notional cost $3.00, remaining $4.00 (see BUDGET.md).
+  - **Passive market research**: searched for how the free-PDF-tool
+    landscape looks in 2026. Genuinely client-side, no-signup competitors
+    exist (e.g. PDFFixy advertises the same "processed entirely in your
+    browser, nothing uploaded" pitch Deskline uses), so "no upload" is
+    becoming table stakes rather than a unique differentiator — it's still
+    worth keeping front and center, but it alone won't be enough to stand
+    out once/if this gets any real traffic. No new build work from this;
+    logging for future strategy thinking.
+
 - **2026-09-09**: Found and fixed a real bug in the Compress tool: images are
   always re-encoded as JPEG for output, but the canvas used to do the
   re-encoding was never given an opaque background first. JPEG has no alpha

@@ -13,8 +13,9 @@ is still charged at its typical market rate to force real strategy discipline.
 | 2026-09-08 | Bug fix: working drag/keyboard reorder for the merge file list (help text promised this but it didn't exist — found by the daily routine's first run, recovered and pushed manually after the routine's own push failed) | $6.00 | $19.00 |
 | 2026-09-09 | Bug fix: transparent PNGs turning black when compressed (JPEG re-encode with no background fill) | $4.00 | $15.00 |
 | 2026-09-09 | Growth pass: header tip-link placement, technical SEO (OG/Twitter/JSON-LD/sitemap/robots.txt), drafted 6 outreach/submission pieces, GitHub org migration for a clean URL | $8.00 | $7.00 |
+| 2026-09-09 | Bug fix: Compress tool leaked a blob URL (`URL.createObjectURL`) per image, never revoked | $3.00 | $4.00 |
 
-**Remaining: $7.00**
+**Remaining: $4.00**
 
 Pivot trigger: when remaining hits $0, stop iterating on Strategy 01, write a
 postmortem in STRATEGY_LOG.md, and start Strategy 02 with a fresh $50.00.
