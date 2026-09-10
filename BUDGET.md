@@ -15,8 +15,9 @@ is still charged at its typical market rate to force real strategy discipline.
 | 2026-09-09 | Growth pass: header tip-link placement, technical SEO (OG/Twitter/JSON-LD/sitemap/robots.txt), drafted 6 outreach/submission pieces, GitHub org migration for a clean URL | $8.00 | $7.00 |
 | 2026-09-09 | Bug fix: Compress tool leaked a blob URL (`URL.createObjectURL`) per image, never revoked | $3.00 | $4.00 |
 | 2026-09-09 | Bug fix: Split tool's page-range parser silently dropped backwards ranges (e.g. "5-3") instead of extracting them | $3.00 | $1.00 |
+| 2026-09-10 | Feature gap fix: Images→PDF panel promised page order follows "the order you pick them" but had no way to fix a wrong selection order (Merge already had this); wired the existing tested drag/keyboard reorder code into Images→PDF and updated its help text | $4.00 | -$3.00 |
 
-**Remaining: $1.00**
+**Remaining: -$3.00 (strategy budget exhausted — next run writes a postmortem)**
 
 Pivot trigger: when remaining hits $0, stop iterating on Strategy 01, write a
 postmortem in STRATEGY_LOG.md, and start Strategy 02 with a fresh $50.00.

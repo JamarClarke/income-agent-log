@@ -73,6 +73,32 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## Maintenance log
 
+- **2026-09-10**: Fixed a genuine feature gap in the Images→PDF tool: its
+  help text says images "become pages, in the order you pick them," but
+  unlike the Merge tool there was no way to fix a wrong selection order —
+  `renderFileList()` rendered a static, non-reorderable list. Reused the
+  same `renderReorderableFileList()` drag-and-drop/arrow-key code already
+  built and browser-tested for Merge (2026-09-08), wiring it into the
+  Images→PDF panel's file list and updating the help text to match Merge's
+  wording. Verified by re-reading the diff: the `run` click handler already
+  iterated the `files` closure variable in order, which `refresh()` now
+  reassigns on every reorder exactly as it does for Merge, so no other code
+  needed to change. Syntax-checked with `node -c app.js`. The
+  non-reorderable `renderFileList()` is untouched and still used correctly
+  by the Compress tool, where order doesn't matter.
+  - **Passive market research**: this niche has gotten noticeably more
+    crowded since the last check — several "no-upload" client-side PDF
+    tools now exist (ClientPDF, RaptorPDF, Bontello, others), some offering
+    page-reorder as a named feature already and others offering 10-75 tools
+    in one suite. Confirms reorder was worth closing as a real gap, and
+    reinforces that breadth-of-features won't be how Deskline
+    differentiates against better-resourced competitors — simplicity and
+    the privacy angle stay the more defensible lane.
+  Notional cost $4.00, remaining **-$3.00** (see BUDGET.md). Strategy 01's
+  budget is now exhausted — per the strategy rules, the next run should
+  write a postmortem for Strategy 01 instead of continuing to iterate on
+  the product.
+
 - **2026-09-09 (3)**: Found and fixed a logic bug in the Split tool's page-range
   parser (`parsePageRange` in `app.js`): a backwards range like `"5-3"` (start
   page greater than end page) matched the range regex but the `for (let i =
