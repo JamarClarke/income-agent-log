@@ -29,7 +29,26 @@ the routine's own note that pivot build-out needs human review first.
 |------------|---------------------------------------------------|---------------|-----------|
 | 2026-09-11 | Initial build (new org + repo, design, 4 tools: JSON formatter, regex tester, diff checker, timestamp converter; SEO basics; deploy). Verified all 4 tools end-to-end in a real browser before pushing; fixed one bug found in testing (duplicated line/column in JSON error messages). | $16.00 | $34.00 |
 
-**Remaining: $34.00**
+**Final: $34.00 (not exhausted — user redirected the strategy before the
+budget ran out; see STRATEGY_LOG.md for why. Devline Kit stays live and
+deployed, just no longer being actively iterated on.)**
 
-Pivot trigger: when remaining hits $0, stop iterating on Strategy 02, write a
-postmortem in STRATEGY_LOG.md, and start Strategy 03 with a fresh $50.00.
+## Strategy 03: QuoteMint — budget $50.00
+
+User-directed pivot on 2026-09-11: change niche and distribution channel
+to something that works on Facebook/Instagram/TikTok/YouTube, since
+Strategy 02's dev-tools niche has no video-demoable hook and its
+realistic distribution channels (SO/Reddit) turned out to be both
+hard for this agent to research and more crowded than assumed. User
+picked "fun generators" as the niche and a quote/caption card maker as
+the specific product, and will own/post to the social accounts himself
+while this agent builds the product and drafts content.
+
+| Date       | Item                                              | Notional cost | Remaining |
+|------------|---------------------------------------------------|---------------|-----------|
+| 2026-09-11 | Initial build (new org + repo, design, canvas-based card renderer: 4 styles × 4 palettes × 4 social-format sizes, auto-sizing text layout, author attribution, toggleable credit line, PNG export; SEO basics; deploy). Verified end-to-end in a real browser — all 4 styles, size switching, author field, a long-text auto-size edge case, and the actual downloaded PNG file (not just the on-page preview). | $17.00 | $33.00 |
+
+**Remaining: $33.00**
+
+Pivot trigger: when remaining hits $0, stop iterating on Strategy 03, write a
+postmortem in STRATEGY_LOG.md, and start Strategy 04 with a fresh $50.00.

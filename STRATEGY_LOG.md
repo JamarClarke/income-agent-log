@@ -399,3 +399,66 @@ periodically) wired in from day one — not treated as a later nice-to-have.
     the only viable version of this play, and even that needs the user's
     own SO/Reddit access to find and post, since this agent can't browse
     SO and gets low-signal results on Reddit search.
+
+## Strategy 03: QuoteMint (quote & caption card maker)
+
+- **2026-09-11 — user directed a niche AND distribution-channel pivot**,
+  before Strategy 02's budget ran out ($34 remaining at the time). Reason
+  given: wants to use Facebook/Instagram/TikTok/YouTube as outreach
+  channels. Dev-tools utilities don't have a visual hook for short-form
+  video, so the product niche needed to change too, not just the channel.
+- **Division of labor established**: the user creates and owns the actual
+  social accounts (phone verification, persona, ongoing posting — not
+  something this agent can or should do on their behalf per the
+  third-party-account rule). This agent builds the product and drafts
+  ready-to-post scripts/captions/video concepts each cycle. Confirmed
+  with the user directly before building anything.
+- **Niche chosen**: "fun generators" — visual, personally-relevant results
+  that demo in 15-30 seconds and are worth sharing because the result is
+  about the viewer (or, for this specific product, about something they
+  made). Two other concrete ideas were proposed and not chosen: an
+  aesthetic name/vibe generator, and a two-name compatibility/match-%
+  generator — logged here in case a future pivot revisits them.
+- **Product chosen**: a free quote/caption card maker. Paste a quote or
+  caption, pick one of 4 visual styles (minimal, bold, handwritten,
+  gradient) × 4 color palettes each, pick a size matching a real social
+  format (IG post 1080×1080, IG/TikTok story 1080×1920, Pinterest
+  1000×1500, X/Twitter 1200×675), download a PNG. Targets an audience
+  that already exists and already posts image quotes daily (bookstagram,
+  motivational/quote pages, caption-conscious creators generally) rather
+  than betting on something going spontaneously viral.
+- **Naming**: wanted `quoteglow` first (echoing the coral/warm branding),
+  GitHub's org-creation form rejected it and `cardglow` and `inkcards` too
+  — same unexplained gap between the public users API (which showed all
+  three as available) and the actual org-creation check seen with
+  `devlinetools` earlier. Used `quotemint` instead. New org, live at
+  **https://quotemint.github.io/**, repo
+  `github.com/quotemint/quotemint.github.io`.
+- **Stack**: static HTML/CSS/JS, zero dependencies beyond Google Fonts,
+  the card itself is drawn on an HTML5 canvas (manual text-wrapping +
+  auto-shrink-to-fit sizing, since canvas has no built-in text layout).
+  GitHub Pages hosting, same no-upload framing as the first two products
+  (what you type is rendered locally, never sent anywhere) — genuinely
+  true here too, and a real trust point since people may paste personal
+  captions.
+- **A truthful, toggleable "quotemint.github.io" credit line** is drawn
+  onto the card by default (user can switch it off). This is a
+  legitimate, non-deceptive growth loop — the same pattern Canva and
+  similar free tools use — not a dark pattern: it's off by one click, and
+  it never claims anything false.
+- **Verification**: tested end-to-end in a real Chrome browser before
+  pushing — all 4 styles, the size presets, author attribution, and a
+  long-quote edge case to confirm the auto-shrink text sizing actually
+  prevents overflow instead of just handling the demo string. Also
+  downloaded the actual PNG and visually inspected the file itself, not
+  just the on-page canvas preview, since a canvas can render correctly
+  on-screen but still export wrong.
+- **Daily routine updated** the same way as the Strategy 01→02 handoff:
+  sources and prompt repointed from `devlinekit.github.io` to
+  `quotemint.github.io`, product description updated. Devline Kit is not
+  deleted or taken down — it stays live, just outside the routine's
+  active-maintenance scope now.
+- **Content drafted for the user's own accounts** (not posted by this
+  agent): a first video script/storyboard and platform captions for
+  Instagram/TikTok/YouTube Shorts and a Facebook post variant, handed to
+  the user directly in-session rather than duplicated into this file.
