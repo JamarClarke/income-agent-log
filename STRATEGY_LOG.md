@@ -317,3 +317,53 @@ mostly one-off usage pattern.
 Either way, whichever strategy the user greenlights should have basic,
 free, no-new-account measurement (GitHub Pages Traffic insights, checked
 periodically) wired in from day one — not treated as a later nice-to-have.
+
+## Strategy 02: Devline Kit (developer micro-tools)
+
+- **2026-09-11 — user greenlit Idea A.** Built out in this interactive
+  session, per the routine's own instruction that strategy pivots need
+  human review before build-out.
+- **Idea**: free, no-signup, no-upload client-side developer utilities —
+  JSON formatter/validator, regex tester, diff checker, Unix timestamp
+  converter. Same ethos as Deskline (nothing leaves the browser), aimed at
+  a different, hopefully less saturated distribution path: technical
+  searchers and organic links from Stack Overflow/GitHub answers rather
+  than needing forum/directory submissions.
+- **Naming**: intended to call it `devlinetools` (a clean echo of
+  `desklinetools`), but GitHub rejected that name as unavailable even
+  though it wasn't visible via the public users API — used `devlinekit`
+  instead. New free GitHub org, own identity from Deskline (so a Strategy
+  01 shutdown doesn't affect Strategy 02, and vice versa).
+- **Stack**: static HTML/CSS/JS, zero dependencies (no CDN libraries needed
+  for any of the four tools), GitHub Pages hosting at
+  `github.com/devlinekit/devlinekit.github.io`, live at
+  **https://devlinekit.github.io/**.
+- **Verification**: all four tools were run end-to-end in a real Chrome
+  browser (via a local static server) before pushing, not just
+  eyeballed — this caught one real bug (JSON validator was appending its
+  own computed "line, column" after V8's error message, which on current
+  Chrome already includes that, producing a duplicate). Fixed and
+  re-verified before commit.
+- **Applying Strategy 01's lesson on measurement**: GitHub Pages' built-in
+  Traffic tab (visits/uniques/referrers) is free and needs no new account —
+  this should be checked periodically going forward (e.g. by the daily
+  routine) instead of never looking, which is what actually happened last
+  time.
+- **Monetization**: same Ko-fi tip link reused from Deskline
+  (https://ko-fi.com/desklinetools) — user chose to reuse rather than
+  create a second account, since it's free to add a second product's
+  audience to the same tip jar.
+- **Daily routine updated**: the routine's sources and prompt (previously
+  hard-coded to Strategy 01 / desklinetools.github.io) were updated to
+  point at `income-agent-log` + `devlinekit.github.io` and describe the
+  Devline Kit product, so tomorrow's scheduled run maintains the current
+  strategy instead of the retired one.
+- **Open risk, not yet confirmed**: when the `desklinetools` org was
+  created (2026-09-09), the routine needed the Claude GitHub App granted
+  access to that org separately before it could push there — this was the
+  2026-09-08 push-403 incident. The same may well be true for the new
+  `devlinekit` org; it hasn't been tested yet since the routine's sources
+  only just changed. If tomorrow's scheduled run (2026-09-12) fails to
+  push with a 403, that's the likely cause — check
+  https://github.com/apps/claude/installations/select_target for the
+  `devlinekit` org's access the same way it was fixed for `desklinetools`.

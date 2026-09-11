@@ -17,7 +17,19 @@ is still charged at its typical market rate to force real strategy discipline.
 | 2026-09-09 | Bug fix: Split tool's page-range parser silently dropped backwards ranges (e.g. "5-3") instead of extracting them | $3.00 | $1.00 |
 | 2026-09-10 | Feature gap fix: Images→PDF panel promised page order follows "the order you pick them" but had no way to fix a wrong selection order (Merge already had this); wired the existing tested drag/keyboard reorder code into Images→PDF and updated its help text | $4.00 | -$3.00 |
 
-**Remaining: -$3.00 (strategy budget exhausted — next run writes a postmortem)**
+**Final: -$3.00 (exhausted — postmortem written 2026-09-11, see STRATEGY_LOG.md)**
 
-Pivot trigger: when remaining hits $0, stop iterating on Strategy 01, write a
-postmortem in STRATEGY_LOG.md, and start Strategy 02 with a fresh $50.00.
+## Strategy 02: Devline Kit — budget $50.00
+
+User reviewed the Strategy 01 postmortem and picked Idea A (developer
+micro-tools) on 2026-09-11. Built and shipped in an interactive session per
+the routine's own note that pivot build-out needs human review first.
+
+| Date       | Item                                              | Notional cost | Remaining |
+|------------|---------------------------------------------------|---------------|-----------|
+| 2026-09-11 | Initial build (new org + repo, design, 4 tools: JSON formatter, regex tester, diff checker, timestamp converter; SEO basics; deploy). Verified all 4 tools end-to-end in a real browser before pushing; fixed one bug found in testing (duplicated line/column in JSON error messages). | $16.00 | $34.00 |
+
+**Remaining: $34.00**
+
+Pivot trigger: when remaining hits $0, stop iterating on Strategy 02, write a
+postmortem in STRATEGY_LOG.md, and start Strategy 03 with a fresh $50.00.
