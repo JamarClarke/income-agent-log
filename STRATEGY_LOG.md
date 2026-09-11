@@ -367,3 +367,35 @@ periodically) wired in from day one — not treated as a later nice-to-have.
   push with a 403, that's the likely cause — check
   https://github.com/apps/claude/installations/select_target for the
   `devlinekit` org's access the same way it was fixed for `desklinetools`.
+  **Update same day**: confirmed via that page the app was in fact not yet
+  installed on `devlinekit` (no "Configure" link, unlike the other three
+  orgs). Started the install (org selected, "All repositories" scope, same
+  as the others) but GitHub required a 2FA/sudo-mode code partway through
+  that only the user can enter — handed off, not yet confirmed complete.
+- **2026-09-11 — passive market research on distribution, done at the
+  user's request while looking for real threads to answer.** Two blocks
+  worth recording honestly:
+  - Could not search or browse Stack Overflow at all — WebSearch is
+    blocked from stackoverflow.com entirely, and direct navigation there
+    hit a CAPTCHA (never attempted to solve it, per this agent's hard
+    rule). Reddit's own on-site search returned mostly low-relevance
+    results for specific technical questions, so no verified real
+    thread URLs came out of this — none are being handed over, to avoid
+    fabricating leads.
+  - What did turn up, unprompted, is a stronger crowding signal than
+    Strategy 01's postmortem estimated: r/webdev already has multiple
+    *very recent* (7 days–3 months old) "I built a free browser-based
+    dev-tools site" showoff posts (one literally "a 59-tool utility
+    site", another "100+ tools — no server, no signup, no tracking") —
+    near-identical pitches to Devline Kit. dev.to is worse: searching for
+    exactly this idea returns a long list of near-duplicate "I Built N
+    Developer Tools (Free, No Signup)" posts from different authors. And
+    r/regex's own community sidebar has regex101.com baked into its
+    posting rules as *the* recommended tool — a new regex tester has
+    essentially no organic opening in that specific community. The
+    "showoff post" distribution mechanism this strategy was counting on
+    looks considerably more contested than assumed; genuinely answering
+    real troubleshooting questions (not posting show-off threads) may be
+    the only viable version of this play, and even that needs the user's
+    own SO/Reddit access to find and post, since this agent can't browse
+    SO and gets low-signal results on Reddit search.
