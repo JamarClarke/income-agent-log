@@ -207,4 +207,113 @@ it unattended again.
 
 ## Postmortems
 
-(none yet — first strategy in progress)
+### Strategy 01: Deskline Tools (client-side PDF/image toolkit) — 2026-09-11
+
+**Budget**: $50.00 notional, spent $53.00 over 9 sessions (2026-09-08 to
+2026-09-10). Final remaining: **-$3.00**.
+
+**What was actually built and shipped**: A real, working, free, no-upload,
+no-signup client-side toolkit — merge PDF, split PDF (range + split-to-zip),
+compress image, images→PDF — live at https://desklinetools.github.io/,
+deployed on GitHub Pages under its own org for a clean domain. Five genuine
+bugs were found and fixed over the course of the strategy (missing
+drag/keyboard reorder in Merge and later Images→PDF despite help text
+promising it, transparent PNGs turning solid black on compress, a blob URL
+leak in Compress, and the Split tool silently dropping backwards page
+ranges like "5-3"). Basic technical SEO was added (OG/Twitter tags,
+JSON-LD, sitemap.xml, robots.txt), and a tip-jar link was wired into the
+header. Six outreach/submission drafts were written (Show HN, r/SideProject,
+r/InternetIsBeautiful, r/webdev Showoff Saturday, a free-for.dev PR, an
+AlternativeTo listing) for the user to review and post themselves.
+
+**Correction to the log**: earlier entries above (2026-09-09/10) list the
+tip link as an "open item... waiting on the user's tip-jar URL." That's
+stale — commit `c5c466c` ("Wire up the tip jar link", 2026-09-09) actually
+wired it to `https://ko-fi.com/desklinetools`, and it's live in
+`index.html` today. The open item was never updated to reflect that it
+closed. Noting this here for an honest record; not treating it as new work
+since it was already done.
+
+**Real, measurable outcome**: **zero.** Zero confirmed visits, zero tip
+revenue, zero signups (not applicable by design), zero external mentions.
+This isn't "results were disappointing" — there is genuinely no data
+either way, because:
+- None of the six outreach drafts were ever posted anywhere (correctly —
+  posting to third-party platforms is outside this agent's authorized
+  scope without the user's explicit action). No evidence in either repo
+  that the user posted them either.
+- No analytics or traffic measurement of any kind was ever added to the
+  site — not even GitHub's own built-in repo Traffic insights (visits/
+  unique visitors/referrers), which needs no new account and would have
+  been free to check. So even the one channel that *is* in scope (the live
+  public URL existing at all, indexed by search engines via the sitemap)
+  was never actually checked for organic hits.
+- The product itself was never at fault in any bug report, review, or
+  complaint, because none exist — there's no channel through which any
+  would have reached this log.
+
+**Genuine lessons learned**:
+1. A well-built, well-tested, genuinely working free tool produces exactly
+   zero measurable outcome without *some* distribution channel, and the
+   two channels that would normally bootstrap a brand-new tool (social/
+   forum posts, directory submissions) both require actions — creating
+   accounts, posting as the user, agreeing to platform ToS — that this
+   agent is correctly barred from doing autonomously. That's a structural
+   ceiling on this strategy shape, not a one-off gap: it can get a product
+   to "ready to be seen" but not to "seen."
+2. Effort drifted toward what was easy and safe to keep doing (bug fixes,
+   SEO metadata, code quality) rather than the actual bottleneck
+   (distribution and measurement). The last few sessions fixed
+   increasingly minor edge cases (a blob URL leak, a backwards page-range
+   parser bug) on a product with confirmed-zero traffic — real fixes, but
+   low-value ones given nobody was hitting those paths yet.
+3. Never instrumenting even free, no-account-needed measurement (GitHub
+   Pages' own Traffic tab) was a mistake — it means this postmortem can't
+   even say "nobody visited," only "we don't know." Any future strategy
+   should add the cheapest available measurement on day one, before
+   polishing.
+4. Passive market research (logged 2026-09-09, 2026-09-10) found the
+   client-side/no-upload PDF-tool niche is real but increasingly crowded
+   (ClientPDF, RaptorPDF, PDFFixy, Bontello, and others already claim the
+   same "nothing uploaded" pitch, some with far more tools). A brand-new,
+   unpromoted entrant has a weak organic path to visibility in a category
+   Google already ranks heavily, on a domain with zero age or backlinks.
+5. The $50 notional-budget mechanism worked exactly as designed — it
+   forced a stop instead of open-ended polishing once diminishing returns
+   set in, and it's the reason this postmortem exists instead of a tenth
+   small bug-fix commit.
+
+## Proposed next strategy (awaiting review)
+
+Both ideas below directly target the lesson from Strategy 01: pick
+something where the agent's own in-scope, no-account actions (writing
+code, basic on-page SEO, optionally checking GitHub's built-in repo
+Traffic tab) have a plausible path to organic discovery, instead of
+depending on distribution actions the agent isn't authorized to take.
+Neither has been built, scaffolded, or deployed — proposing only.
+
+**Idea A — Small developer text/data utilities** (JSON formatter +
+validator, regex tester, diff checker, timestamp/unit converters), same
+static/client-side/no-upload/no-signup ethos as Deskline. Rationale:
+technical searchers (developers debugging something at 2am) search for and
+click *very* specific long-tail queries ("json formatter online free",
+"regex tester javascript"), and technical audiences routinely link such
+tools directly in Stack Overflow answers, GitHub issues, and blog posts —
+a form of organic distribution that happens *because* the tool is useful,
+without the agent needing to post anywhere itself. Each micro-tool is an
+independent SEO target, so the idea can be tested incrementally (ship one
+tool, see if GitHub Pages Traffic shows any pickup, before building the
+next) rather than needing a full suite before getting any signal.
+
+**Idea B — Small business document generator** (free invoice / receipt /
+quote generator, client-side PDF output, no account, no watermark).
+Rationale: different search intent than either PDF-utility or dev-tool
+niches (small-business owners, freelancers), plausibly less saturated by
+big-budget SaaS competitors than the "PDF toolkit" or "dev tools" spaces
+already are, and has natural repeat use (someone who generates one invoice
+this month plausibly comes back next month) rather than Deskline's
+mostly one-off usage pattern.
+
+Either way, whichever strategy the user greenlights should have basic,
+free, no-new-account measurement (GitHub Pages Traffic insights, checked
+periodically) wired in from day one — not treated as a later nice-to-have.
