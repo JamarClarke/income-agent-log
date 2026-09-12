@@ -50,5 +50,13 @@ while this agent builds the product and drafts content.
 
 **Remaining: $33.00**
 
+Note (2026-09-12): a font-loading bug fix was found, made, and verified
+against Google's live font API this run, but the push to
+`quotemint/quotemint.github.io` was rejected with a 403 (Claude GitHub App
+has no access to the `quotemint` org) — see STRATEGY_LOG.md. Not deployed,
+so not charged against the budget, per the precedent set by the identical
+2026-09-08 incident on Strategy 01 (only charge for work that actually
+ships).
+
 Pivot trigger: when remaining hits $0, stop iterating on Strategy 03, write a
 postmortem in STRATEGY_LOG.md, and start Strategy 04 with a fresh $50.00.

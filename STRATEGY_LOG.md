@@ -2,6 +2,31 @@
 
 Persistent journal for the agent across sessions. Read this first on every run.
 
+## AWAITING USER
+
+**2026-09-12 — `quotemint` org needs Claude GitHub App access.** This
+run found, fixed, and verified (via direct testing against Google's font
+API, not just reasoning about the code) a real rendering bug in QuoteMint
+— see the Strategy 03 entry dated 2026-09-12 below for the technical
+detail. The fix is a one-line change to `index.html`'s Google Fonts URL,
+committed locally, but `git push` to `quotemint/quotemint.github.io`
+failed with a 403: "Claude doesn't have GitHub access to
+quotemint/quotemint.github.io for your organization." This is the exact
+same failure this log already saw and fixed for the `desklinetools` org
+(2026-09-08/09) and had flagged as an unconfirmed risk for the
+`devlinekit` org (2026-09-11) — the Claude GitHub App was evidently never
+separately granted access to the `quotemint` org when it was created.
+
+**What's needed**: please visit
+https://github.com/apps/claude/installations/select_target and confirm
+the Claude GitHub App has access to the `quotemint` org (either select
+the `quotemint.github.io` repo explicitly, or choose "All repositories"
+for that org) — the same fix already applied to `desklinetools`. Once
+confirmed, the next run will redo and push the fix (it's fully documented
+below in enough detail to reproduce verbatim) and resume normal
+maintenance. Until then, this run has **not** modified the live QuoteMint
+product, and the product repo is otherwise untouched.
+
 ## Rules of engagement (set by user, 2026-09-08)
 
 - Only free tools/services may be used for real. Every one is still charged against
@@ -401,6 +426,45 @@ periodically) wired in from day one — not treated as a later nice-to-have.
     SO and gets low-signal results on Reddit search.
 
 ## Strategy 03: QuoteMint (quote & caption card maker)
+
+- **2026-09-12 — bug fix found and verified, but NOT deployed (push
+  blocked)**: the "Gradient" style in `app.js` sets `fontWeight: "500"`
+  for its Playfair Display italic headline text, but the Google Fonts
+  `<link>` in `index.html` only requested `Playfair+Display:ital@1` — the
+  `ital` axis alone, with no `wght` axis at all. Google's CSS2 API
+  silently serves the family's default weight (400) when `wght` is
+  omitted, so every Gradient-style card was actually rendering at regular
+  weight, not the medium weight the code specifies — a real, if subtle,
+  visual mismatch on one of the four card styles that
+  `document.fonts.load('italic 500 ... "Playfair Display"')` in `app.js`
+  couldn't catch, since font matching silently falls back to the one
+  loaded face instead of erroring. Confirmed both the bug and the fix
+  directly against Google's font API with `curl` rather than reasoning
+  about it from the code alone: the old URL returns `@font-face` rules
+  with `font-weight: 400` only; the corrected URL
+  (`Playfair+Display:ital,wght@1,500`) returns `font-weight: 500` faces as
+  expected. Syntax-checked `app.js` (unchanged) with `node -c`. Committed
+  the one-line `index.html` fix locally (commit `8a32edc`,
+  "Fix Playfair Display italic loading at wrong weight in Gradient
+  style"), but **`git push` to `quotemint/quotemint.github.io` failed with
+  a 403**: "Claude doesn't have GitHub access to
+  quotemint/quotemint.github.io for your organization." This is the same
+  failure mode as the 2026-09-08 incident on Strategy 01 and the
+  anticipated-but-unconfirmed risk noted under Strategy 02 for the
+  `devlinekit` org — the Claude GitHub App was evidently never granted
+  access to the `quotemint` org either. The commit only exists in this
+  run's ephemeral sandbox and will be lost when the session ends, exactly
+  like the 2026-09-08 incident — **not charging this against the budget**,
+  since nothing actually shipped (same precedent as that incident: only
+  charge for work that ships). The fix will need to be redone (it's a
+  one-line change, documented above in enough detail to redo verbatim)
+  once push access works.
+  - **Passive market research**: several free, no-signup, browser-based
+    quote-card makers already exist (CommonNinja's Quote Card Maker,
+    Quotescover.com, assorted mobile apps) — confirms this is a real,
+    validated niche with existing demand, but also that QuoteMint isn't
+    filling an empty gap; differentiation will likely have to come from
+    genuine polish/speed/no-watermark rather than novelty.
 
 - **2026-09-11 — user directed a niche AND distribution-channel pivot**,
   before Strategy 02's budget ran out ($34 remaining at the time). Reason
