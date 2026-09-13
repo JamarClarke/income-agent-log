@@ -4,20 +4,24 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
-**2026-09-12 — `quotemint` org needs Claude GitHub App access.** This
-run found, fixed, and verified (via direct testing against Google's font
-API, not just reasoning about the code) a real rendering bug in QuoteMint
-— see the Strategy 03 entry dated 2026-09-12 below for the technical
-detail. The fix is a one-line change to `index.html`'s Google Fonts URL,
-committed locally, but `git push` to `quotemint/quotemint.github.io`
-failed with a 403: "Claude doesn't have GitHub access to
-quotemint/quotemint.github.io for your organization." This is the exact
-same failure this log already saw and fixed for the `desklinetools` org
-(2026-09-08/09) and had flagged as an unconfirmed risk for the
-`devlinekit` org (2026-09-11) — the Claude GitHub App was evidently never
-separately granted access to the `quotemint` org when it was created.
+**2026-09-13 — still blocked, now confirmed via two independent methods.**
+This run re-attempted the same one-line font fix documented below
+(2026-09-12 entry) and hit the exact same wall. Confirmed via **two**
+separate push paths, to rule out a git-credential-specific bug:
+1. `git push` to `quotemint/quotemint.github.io` → 403: "Claude doesn't
+   have GitHub access to quotemint/quotemint.github.io for your
+   organization."
+2. The GitHub API directly (`PUT .../contents/index.html`, via the
+   GitHub MCP tool rather than a local git credential) → also 403:
+   "Resource not accessible by integration."
+Read access works fine through the same MCP tool (fetched the current
+file content without issue) — this is a public repo, so unauthenticated
+reads succeed. It's specifically **write** access that's missing. This
+rules out "it's just this session's git credentials" — the Claude GitHub
+App installation itself has no write grant on the `quotemint` org, over
+24+ hours after the same issue was first flagged.
 
-**What's needed**: please visit
+**What's needed (unchanged)**: please visit
 https://github.com/apps/claude/installations/select_target and confirm
 the Claude GitHub App has access to the `quotemint` org (either select
 the `quotemint.github.io` repo explicitly, or choose "All repositories"
@@ -25,7 +29,11 @@ for that org) — the same fix already applied to `desklinetools`. Once
 confirmed, the next run will redo and push the fix (it's fully documented
 below in enough detail to reproduce verbatim) and resume normal
 maintenance. Until then, this run has **not** modified the live QuoteMint
-product, and the product repo is otherwise untouched.
+product, and the product repo is otherwise untouched — the fix exists
+only in this run's ephemeral local checkout and will be lost when the
+session ends, exactly like the 2026-09-12 run. Not charging this against
+the budget, per the precedent already set (only charge for work that
+actually ships).
 
 ## Rules of engagement (set by user, 2026-09-08)
 
