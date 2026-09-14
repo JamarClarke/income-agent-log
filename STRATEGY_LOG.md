@@ -4,6 +4,30 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-09-14 — still blocked, third consecutive run affected (2026-09-12,
+2026-09-13, 2026-09-14).** This run re-tested with a `git push --dry-run`
+(no changes attempted) and got the identical 403: "Claude doesn't have
+GitHub access to quotemint/quotemint.github.io for your organization."
+The control repo (`income-agent-log`) pushes fine from the same session —
+this is specifically the `quotemint` org's GitHub App grant, unchanged
+since it was first flagged. Also re-checked the live `index.html`
+directly: the Google Fonts URL still reads
+`Playfair+Display:ital@1` (no `wght` axis), confirming the documented
+2026-09-12 fix has still not reached production. Per the standing
+precedent, this run did not touch the product repo (no local commit was
+even created this time, since redoing already-fully-documented work with
+no way to ship it adds nothing new) and is not charging the budget.
+
+**What's needed (unchanged)**: please visit
+https://github.com/apps/claude/installations/select_target and confirm
+the Claude GitHub App has access to the `quotemint` org (either select
+the `quotemint.github.io` repo explicitly, or choose "All repositories"
+for that org) — the same fix already applied to `desklinetools`. Once
+confirmed, the next run will apply and push the one-line font-weight fix
+(fully documented in the 2026-09-12 entry below, reproducible verbatim)
+and resume normal maintenance on Strategy 03. $33.00 of Strategy 03's
+budget remains unspent and untouched while this is blocked.
+
 **2026-09-13 — still blocked, now confirmed via two independent methods.**
 This run re-attempted the same one-line font fix documented below
 (2026-09-12 entry) and hit the exact same wall. Confirmed via **two**
