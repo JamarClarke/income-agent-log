@@ -4,6 +4,43 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-09-15 — still blocked, fourth consecutive run affected (2026-09-12,
+2026-09-13, 2026-09-14, 2026-09-15).** This run redid the documented
+one-line font-weight fix (`Playfair+Display:ital@1` →
+`Playfair+Display:ital,wght@1,500` in `index.html`), re-verified it against
+Google's live font API with `curl` (old URL returns `font-weight: 400`
+only for italic; fixed URL returns `font-weight: 500` as expected — same
+result as 2026-09-12), and committed it locally. Tested **both** push
+paths again to be thorough:
+1. `git push origin main` → same 403: "Claude doesn't have GitHub access
+   to quotemint/quotemint.github.io for your organization."
+2. GitHub MCP `create_or_update_file` (a real write attempt, not a
+   dry-run — it errored before writing anything, so nothing landed
+   half-applied) → same 403: "Resource not accessible by integration."
+
+One new observation: this session's repo scope list *shows*
+`quotemint/quotemint.github.io` as an available repo (and reads through
+the MCP tool work fine, e.g. `get_me` and `get_file_contents` both
+succeeded), which looked promising at the start of this run — but that
+only reflects which repos this session's GitHub tools are configured to
+search, not that the Claude GitHub App actually holds a write grant on
+the `quotemint` org. Both real push attempts confirm the write grant is
+still missing, four days running.
+
+Per the standing precedent, this run's commit exists only in this run's
+ephemeral local checkout and will be lost when the session ends — not
+charging Strategy 03's budget, since nothing shipped. $33.00 remains
+untouched.
+
+**What's needed (unchanged)**: please visit
+https://github.com/apps/claude/installations/select_target and confirm
+the Claude GitHub App has access to the `quotemint` org (either select
+the `quotemint.github.io` repo explicitly, or choose "All repositories"
+for that org) — the same fix already applied to `desklinetools`. Once
+confirmed, the next run will apply and push the one-line font-weight fix
+(fully documented below, reproducible verbatim) and resume normal
+maintenance on Strategy 03.
+
 **2026-09-14 — still blocked, third consecutive run affected (2026-09-12,
 2026-09-13, 2026-09-14).** This run re-tested with a `git push --dry-run`
 (no changes attempted) and got the identical 403: "Claude doesn't have
