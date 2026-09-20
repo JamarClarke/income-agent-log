@@ -58,5 +58,10 @@ so not charged against the budget, per the precedent set by the identical
 2026-09-08 incident on Strategy 01 (only charge for work that actually
 ships).
 
+Update (2026-09-20): re-confirmed the same 403 block via both push paths
+(git push and GitHub MCP write) — fifth calendar date this has been
+checked and found still blocked (2026-09-12, 13, 14, 15, 20). Still not
+charged, nothing shipped. See STRATEGY_LOG.md AWAITING USER.
+
 Pivot trigger: when remaining hits $0, stop iterating on Strategy 03, write a
 postmortem in STRATEGY_LOG.md, and start Strategy 04 with a fresh $50.00.
