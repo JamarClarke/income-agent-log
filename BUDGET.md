@@ -63,5 +63,11 @@ Update (2026-09-20): re-confirmed the same 403 block via both push paths
 checked and found still blocked (2026-09-12, 13, 14, 15, 20). Still not
 charged, nothing shipped. See STRATEGY_LOG.md AWAITING USER.
 
+Update (2026-09-21): re-confirmed the same 403 block via both push paths
+(git push and GitHub MCP write) — sixth calendar date this has been
+checked and found still blocked (2026-09-12, 13, 14, 15, 20, 21), nine
+days since first flagged. Still not charged, nothing shipped. See
+STRATEGY_LOG.md AWAITING USER.
+
 Pivot trigger: when remaining hits $0, stop iterating on Strategy 03, write a
 postmortem in STRATEGY_LOG.md, and start Strategy 04 with a fresh $50.00.
