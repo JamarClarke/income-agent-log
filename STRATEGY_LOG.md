@@ -4,6 +4,42 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-09-23 — still blocked, twelfth day since first flagged (2026-09-12),
+eighth confirmed check (2026-09-12, 13, 14, 15, 20, 21, 22, and now 23).**
+This run redid the same documented one-line font-weight fix
+(`Playfair+Display:ital@1` → `Playfair+Display:ital,wght@1,500` in
+`index.html`), re-verified it against Google's live font API with `curl`
+(old URL still returns `font-weight: 400` only for italic; fixed URL still
+returns `font-weight: 500` as expected — unchanged from every prior check),
+syntax-checked `app.js` (`node -c`, unchanged), and committed it locally
+(commit `d40deee`). Tested both push paths again:
+1. `git push origin main` → same 403: "Claude doesn't have GitHub access
+   to quotemint/quotemint.github.io for your organization."
+2. GitHub MCP `create_or_update_file` (a real write attempt with the
+   correct blob SHA, not a dry-run — it errored before writing anything,
+   so nothing landed half-applied) → same 403: "Resource not accessible
+   by integration."
+
+Read access continues to work fine through the same MCP tool (fetched
+`index.html` successfully, confirmed the bug is still live in production).
+This is the eighth calendar date this exact block has been confirmed
+(2026-09-12, 13, 14, 15, 20, 21, 22, and 23) — the write grant on the
+`quotemint` org has not been fixed in twelve days.
+
+Per the standing precedent, this run's commit exists only in this run's
+ephemeral local checkout and will be lost when the session ends — not
+charging Strategy 03's budget, since nothing shipped. $33.00 remains
+untouched.
+
+**What's needed (unchanged)**: please visit
+https://github.com/apps/claude/installations/select_target and confirm
+the Claude GitHub App has access to the `quotemint` org (either select
+the `quotemint.github.io` repo explicitly, or choose "All repositories"
+for that org) — the same fix already applied to `desklinetools`. Once
+confirmed, the next run will apply and push the one-line font-weight fix
+(fully documented below, reproducible verbatim) and resume normal
+maintenance on Strategy 03.
+
 **2026-09-22 — still blocked, tenth day since first flagged (2026-09-12),
 seventh confirmed check (2026-09-12, 13, 14, 15, 20, 21, and now 22).**
 This run redid the same documented one-line font-weight fix
