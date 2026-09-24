@@ -4,6 +4,58 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-09-24 — still blocked, thirteenth day since first flagged
+(2026-09-12), ninth confirmed check (2026-09-12, 13, 14, 15, 20, 21, 22,
+23, and now 24).** This run redid the same documented one-line
+font-weight fix (`Playfair+Display:ital@1` →
+`Playfair+Display:ital,wght@1,500` in `index.html`), re-verified it
+against Google's live font API with `curl` (old URL still returns
+`font-weight: 400` only for italic; fixed URL still returns
+`font-weight: 500` as expected — unchanged from every prior check),
+syntax-checked `app.js` (`node -c`, unchanged), and committed it locally
+(commit `935c0f7`). Tested both push paths again:
+1. `git push origin main` (both `--dry-run` and a real push) → same 403:
+   "Claude doesn't have GitHub access to quotemint/quotemint.github.io
+   for your organization."
+2. GitHub MCP `create_or_update_file` (a real write attempt with the
+   correct blob SHA, not a dry-run — it errored before writing anything,
+   so nothing landed half-applied) → same 403: "Resource not accessible
+   by integration."
+
+**New detail worth flagging**: today's 403 error message from `git push`
+included an additional remediation path not seen in prior runs' error
+text: alongside the usual "An org admin can install the Claude GitHub App
+at https://github.com/apps/claude/installations/select_target," it now
+also suggests "or reconnect GitHub from claude.ai settings
+(https://claude.ai/customize/connectors?auth_start=github&auth_start_force=1)
+to re-link an existing installation." Noting this as a second possible
+fix path in case the App-installation route hasn't worked — this run
+can't tell which one applies without the user checking both.
+
+Read access continues to work fine through the same MCP tool (fetched
+`index.html` successfully, confirmed the bug is still live in production).
+This is the ninth calendar date this exact block has been confirmed
+(2026-09-12, 13, 14, 15, 20, 21, 22, 23, and 24) — the write grant on the
+`quotemint` org has not been fixed in thirteen days.
+
+Per the standing precedent, this run's commit exists only in this run's
+ephemeral local checkout and will be lost when the session ends — not
+charging Strategy 03's budget, since nothing shipped. $33.00 remains
+untouched.
+
+**What's needed (unchanged, now with a second option)**: please visit
+https://github.com/apps/claude/installations/select_target and confirm
+the Claude GitHub App has access to the `quotemint` org (either select
+the `quotemint.github.io` repo explicitly, or choose "All repositories"
+for that org) — the same fix already applied to `desklinetools`. If that
+doesn't resolve it, try reconnecting GitHub from
+https://claude.ai/customize/connectors?auth_start=github&auth_start_force=1
+to re-link the existing installation (this alternative appeared in
+today's error message for the first time). Once either fix lands, the
+next run will apply and push the one-line font-weight fix (fully
+documented below, reproducible verbatim) and resume normal maintenance on
+Strategy 03.
+
 **2026-09-23 — still blocked, twelfth day since first flagged (2026-09-12),
 eighth confirmed check (2026-09-12, 13, 14, 15, 20, 21, 22, and now 23).**
 This run redid the same documented one-line font-weight fix

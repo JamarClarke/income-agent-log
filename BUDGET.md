@@ -84,5 +84,13 @@ checked and found still blocked (2026-09-12, 13, 14, 15, 20, 21, 22, 23),
 twelve days since first flagged. Still not charged, nothing shipped. See
 STRATEGY_LOG.md AWAITING USER.
 
+Update (2026-09-24): re-confirmed the same 403 block via both push paths
+(git push and GitHub MCP write) — ninth calendar date this has been
+checked and found still blocked (2026-09-12, 13, 14, 15, 20, 21, 22, 23,
+24), thirteen days since first flagged. Today's error text surfaced a
+second possible fix (reconnecting GitHub from claude.ai settings, not
+just the App-installation page) — logged in STRATEGY_LOG.md. Still not
+charged, nothing shipped. See STRATEGY_LOG.md AWAITING USER.
+
 Pivot trigger: when remaining hits $0, stop iterating on Strategy 03, write a
 postmortem in STRATEGY_LOG.md, and start Strategy 04 with a fresh $50.00.
