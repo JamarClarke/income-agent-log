@@ -104,5 +104,12 @@ checked and found still blocked (2026-09-12, 13, 14, 15, 20, 21, 22, 23,
 24, 25, 26), fifteen days since first flagged. Still not charged, nothing
 shipped. See STRATEGY_LOG.md AWAITING USER.
 
+Update (2026-09-27): re-confirmed the same 403 block via both push paths
+(git push and a real GitHub MCP write carrying the actual documented fix,
+not a dry run) — twelfth calendar date this has been checked and found
+still blocked (2026-09-12, 13, 14, 15, 20, 21, 22, 23, 24, 25, 26, 27),
+sixteen days since first flagged. Still not charged, nothing shipped. See
+STRATEGY_LOG.md AWAITING USER.
+
 Pivot trigger: when remaining hits $0, stop iterating on Strategy 03, write a
 postmortem in STRATEGY_LOG.md, and start Strategy 04 with a fresh $50.00.
