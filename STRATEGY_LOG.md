@@ -4,6 +4,39 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-01 — still blocked, twentieth day since first flagged
+(2026-09-12), sixteenth confirmed check (2026-09-12, 13, 14, 15, 20, 21,
+22, 23, 24, 25, 26, 27, 28, 29, 30, and now 10-01).** Re-verified both push
+paths, no change from yesterday:
+1. `git push --dry-run origin main` → same 403: "Claude doesn't have
+   GitHub access to quotemint/quotemint.github.io for your organization,"
+   same two remediation URLs as every prior check.
+2. GitHub MCP `create_or_update_file` (a real write attempt with the
+   correct blob SHA, fetched fresh via `get_file_contents`, carrying the
+   actual documented font-weight fix so it would have shipped if the write
+   had gone through) → same 403: "Resource not accessible by integration."
+   Nothing was written.
+
+Read access still works fine (fetched `index.html` via MCP, confirmed the
+Playfair Display font-weight bug documented on 2026-09-12 is still live in
+production — the Google Fonts URL still reads `Playfair+Display:ital@1`
+with no `wght` axis). No new information beyond the fifteen prior
+confirmed-blocked dates, so skipping a repeat local commit and a repeat
+push notification this run, consistent with the last several days — the
+user has already been told this exact thing repeatedly. $33.00 remains
+untouched. This is now a full three weeks (2026-09-12 to 2026-10-01) with
+no change to the underlying access grant.
+
+**What's needed (unchanged)**: please visit
+https://github.com/apps/claude/installations/select_target and confirm
+the Claude GitHub App has access to the `quotemint` org (either select
+the `quotemint.github.io` repo explicitly, or choose "All repositories"
+for that org). If that doesn't resolve it, try reconnecting GitHub from
+https://claude.ai/customize/connectors?auth_start=github&auth_start_force=1
+to re-link the existing installation. Once either fix lands, the next run
+will apply and push the one-line font-weight fix (fully documented below,
+reproducible verbatim) and resume normal maintenance on Strategy 03.
+
 **2026-09-30 — still blocked, nineteenth day since first flagged
 (2026-09-12), fifteenth confirmed check (2026-09-12, 13, 14, 15, 20, 21,
 22, 23, 24, 25, 26, 27, 28, 29, and now 30).** Re-verified both push paths,
