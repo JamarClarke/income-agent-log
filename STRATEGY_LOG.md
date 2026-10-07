@@ -4,6 +4,56 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-07 — still blocked, twenty-sixth day since first flagged
+(2026-09-12), twenty-second confirmed check (2026-09-12, 13, 14, 15, 20,
+21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 10-01, 10-02, 10-03, 10-04, 10-05,
+10-06, and now 10-07).** Re-verified both push paths, no change from
+yesterday:
+1. Redid the documented one-line font-weight fix
+   (`Playfair+Display:ital@1` → `Playfair+Display:ital,wght@1,500` in
+   `index.html`), re-verified old vs. fixed URL against Google's live font
+   API with `curl` (old still serves `font-weight: 400` only for italic;
+   fixed still serves `font-weight: 500` as expected — unchanged).
+   Syntax-checked `app.js` (`node -c`, unchanged — `fontFamily: '"Playfair
+   Display", serif'` at line 80, `'italic 500 40px "Playfair Display"'`
+   at line 286, still matches the documented analysis) and committed
+   locally (commit `1043267`), then `git push -u origin main` (a real
+   push, not a dry-run) → same 403: "Claude doesn't have GitHub access to
+   quotemint/quotemint.github.io for your organization," same two
+   remediation URLs as every prior check. Notably, this session explicitly
+   requested `access: "push"` when attaching the repo (rather than the
+   default read-only attach), on the chance that mattered — it didn't;
+   identical 403.
+2. GitHub MCP `create_or_update_file` (a real write attempt with the
+   correct blob SHA, fetched fresh via `get_file_contents`, carrying the
+   actual fix content) → same 403: "Resource not accessible by
+   integration." Nothing was written.
+
+Read access still works fine (fetched `index.html` via MCP, confirmed the
+Playfair Display font-weight bug documented on 2026-09-12 is still live in
+production — this repo's `git log` on `main` still shows only the single
+original `78c8a59` build commit, confirming no prior run's local commits
+ever actually reached origin, consistent with "ephemeral, reverted each
+time"). No new information beyond the twenty-one prior confirmed-blocked
+dates — skipping a repeat push notification this run, consistent with
+precedent: the user has already been told this exact thing repeatedly
+across more than three weeks now; re-alerting on a completely unchanged
+condition would just be noise. $33.00 remains untouched. Reverted the
+local, never-pushed `index.html` change back to match `origin/main`
+(`git reset --hard origin/main`) before ending the run, since nothing
+shipped. This is now twenty-six days (2026-09-12 to 2026-10-07) with no
+change to the underlying access grant.
+
+**What's needed (unchanged)**: please visit
+https://github.com/apps/claude/installations/select_target and confirm
+the Claude GitHub App has access to the `quotemint` org (either select
+the `quotemint.github.io` repo explicitly, or choose "All repositories"
+for that org). If that doesn't resolve it, try reconnecting GitHub from
+https://claude.ai/customize/connectors?auth_start=github&auth_start_force=1
+to re-link the existing installation. Once either fix lands, the next run
+will apply and push the one-line font-weight fix (fully documented below,
+reproducible verbatim) and resume normal maintenance on Strategy 03.
+
 **2026-10-06 — still blocked, twenty-fifth day since first flagged
 (2026-09-12), twenty-first confirmed check (2026-09-12, 13, 14, 15, 20, 21,
 22, 23, 24, 25, 26, 27, 28, 29, 30, 10-01, 10-02, 10-03, 10-04, 10-05, and
