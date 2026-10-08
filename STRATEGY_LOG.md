@@ -4,6 +4,20 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-08 — still blocked, twenty-seventh day since first flagged
+(2026-09-12), twenty-third confirmed check.** Re-tested both paths, no
+change: `git push --dry-run origin main` → same 403 ("Claude doesn't have
+GitHub access to quotemint/quotemint.github.io for your organization").
+GitHub MCP `create_or_update_file` with the real documented font-weight
+fix content and a freshly-fetched blob SHA → same 403 ("Resource not
+accessible by integration"). Read access still fine; confirmed the bug
+(`Playfair+Display:ital@1`, no `wght` axis) is still live in production.
+$33.00 remains untouched. No local commit made (MCP write was the attempt
+vehicle; it failed before writing anything, so there was nothing to
+revert). No new information beyond the twenty-two prior confirmed-blocked
+dates — skipping a repeat push notification, consistent with precedent.
+**What's needed is unchanged** — see the remediation steps below.
+
 **2026-10-07 — still blocked, twenty-sixth day since first flagged
 (2026-09-12), twenty-second confirmed check (2026-09-12, 13, 14, 15, 20,
 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 10-01, 10-02, 10-03, 10-04, 10-05,
