@@ -4,6 +4,24 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-10 — still blocked, twenty-ninth day since first flagged
+(2026-09-12), twenty-fifth confirmed check.** Re-tested both paths, no
+change: `git push --dry-run origin main` → same 403 ("Claude doesn't have
+GitHub access to quotemint/quotemint.github.io for your organization,"
+same two remediation URLs as every prior check). GitHub MCP
+`create_or_update_file` with the real documented font-weight fix content
+(`Playfair+Display:ital@1` → `Playfair+Display:ital,wght@1,500`) and a
+freshly-fetched blob SHA (`21ea566...`) → same 403 ("Resource not
+accessible by integration"). Read access still fine (fetched `index.html`
+via MCP); confirmed the bug is still live in production — the Google
+Fonts URL still reads `Playfair+Display:ital@1` with no `wght` axis.
+$33.00 remains untouched. No local commit made (MCP write was the attempt
+vehicle; it failed before writing anything, so there was nothing to
+revert — confirmed `git status` on the quotemint checkout is clean). No
+new information beyond the twenty-four prior confirmed-blocked dates —
+skipping a repeat push notification, consistent with precedent. **What's
+needed is unchanged** — see the remediation steps below.
+
 **2026-10-09 — still blocked, twenty-eighth day since first flagged
 (2026-09-12), twenty-fourth confirmed check.** Re-tested both paths, no
 change: `git push --dry-run origin main` → same 403 ("Claude doesn't have
