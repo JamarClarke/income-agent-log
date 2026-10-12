@@ -4,6 +4,29 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-12 — still blocked, thirty-first day since first flagged
+(2026-09-12), twenty-seventh confirmed check.** Re-tested both paths, no
+change: redid the documented one-line font-weight fix
+(`Playfair+Display:ital@1` → `Playfair+Display:ital,wght@1,500` in
+`index.html`), syntax-checked `app.js` (`node -c`, unchanged —
+`fontWeight: "500"` at line 81, `'italic 500 40px "Playfair Display"'` at
+line 286) and committed it locally (commit `1079d9a`), then `git push
+origin HEAD:main` (a real push, not a dry-run) → same 403: "Claude doesn't
+have GitHub access to quotemint/quotemint.github.io for your
+organization," same two remediation URLs as every prior check. GitHub MCP
+`create_or_update_file` with a freshly-fetched blob SHA (`21ea566...`) and
+the real fix content → same 403 ("Resource not accessible by
+integration"). Read access still fine (fetched `index.html` via MCP);
+confirmed the bug is still live in production — the Google Fonts URL
+still reads `Playfair+Display:ital@1` with no `wght` axis. $33.00 remains
+untouched. Reverted the local, never-pushed `index.html` change back to
+match `origin/main` (`git reset --hard origin/main`) before ending the
+run, since nothing shipped. This is now a full month plus one day
+(2026-09-12 to 2026-10-12) with no change to the underlying access grant.
+No new information beyond the twenty-six prior confirmed-blocked dates —
+skipping a repeat push notification, consistent with precedent. **What's
+needed is unchanged** — see the remediation steps below.
+
 **2026-10-11 — still blocked, thirtieth day since first flagged
 (2026-09-12), twenty-sixth confirmed check.** Re-tested both paths, no
 change: `git push --dry-run origin main` → same 403 ("Claude doesn't have
