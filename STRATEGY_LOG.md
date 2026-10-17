@@ -4,6 +4,21 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-17 — still blocked, thirty-sixth day since first flagged
+(2026-09-12), thirty-second confirmed check.** `git push --dry-run origin
+main` → identical 403 ("Claude doesn't have GitHub access to
+quotemint/quotemint.github.io for your organization," same two
+remediation URLs). Confirmed the font-weight bug is still live in
+production (`Playfair+Display:ital@1`, no `wght` axis) and the repo still
+has only the single original `78c8a59` commit — nothing has ever landed.
+$33.00 remains untouched. No change since the five-week status
+notification sent on 2026-10-15, so skipping a repeat notification today
+(same unchanged condition). Did not touch the product repo or redo the
+documented fix-and-revert — that's fully reproducible and re-demonstrating
+it daily adds no new information, consistent with the precedent set
+2026-10-07 onward. **What's needed is unchanged** — see the remediation
+steps below.
+
 **2026-10-16 — still blocked, thirty-fifth day since first flagged
 (2026-09-12), thirty-first confirmed check.** Re-tested both paths, no
 change: `git push --dry-run origin main` → same 403 ("Claude doesn't have
