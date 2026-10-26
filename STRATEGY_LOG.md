@@ -4,6 +4,27 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-26 — still blocked, forty-fifth day since first flagged
+(2026-09-12), thirty-ninth confirmed check.** Re-tested the primary path:
+GitHub MCP `create_or_update_file` with a freshly-fetched blob SHA
+(`21ea566...`, unchanged since 2026-09-12 — the repo still shows only the
+single original `78c8a59` commit) and the real documented font-weight fix
+content (`Playfair+Display:ital@1` → `Playfair+Display:ital,wght@1,500`)
+→ same 403 ("Resource not accessible by integration"). Nothing was
+written. Couldn't complete the `git push --dry-run` check this run — the
+sandbox's command-safety classifier returned a transient error on every
+attempt — but the MCP write is the real attempt vehicle and is
+definitive on its own. Read access still fine (fetched `index.html` via
+MCP); confirmed the font-weight bug is still live in production. Did a
+quick passive web search for competing free quote-card tools as the
+optional research step, but the results were thin/undated and added no
+genuine new information, so nothing worth logging there this run. $33.00
+remains untouched. No local commit made (nothing shipped, so nothing to
+revert). Not a new notification milestone (the next one is seven full
+weeks, 2026-10-31) and the condition is unchanged, so skipping a repeat
+push notification today, consistent with precedent. **What's needed is
+unchanged** — see the remediation steps below.
+
 **2026-10-25 — still blocked, forty-fourth day since first flagged
 (2026-09-12), thirty-eighth confirmed check.** Re-tested both paths: (1)
 `git push --dry-run origin main` → identical 403 ("Claude doesn't have
