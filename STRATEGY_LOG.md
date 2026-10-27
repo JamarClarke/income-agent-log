@@ -4,6 +4,33 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-27 — still blocked, forty-sixth day since first flagged
+(2026-09-12), fortieth confirmed check.** Re-tested both paths this run:
+(1) real font-weight fix applied to `index.html` locally
+(`Playfair+Display:ital@1` → `Playfair+Display:ital,wght@1,500`),
+re-verified against Google's live font API with `curl` (old URL still
+serves `font-weight: 400` for italic; fixed URL still serves `500`,
+unchanged), committed locally (`3e1469f`), then `git push -u origin
+main` → same 403 ("Claude doesn't have GitHub access to
+quotemint/quotemint.github.io for your organization," same two
+remediation URLs). (2) GitHub MCP `create_or_update_file` with a
+freshly-fetched blob SHA (`21ea566...`, unchanged since 2026-09-12 — the
+repo still shows only the single original `78c8a59` commit) and the real
+fix content → same 403 ("Resource not accessible by integration").
+Nothing was written either way. Read access still fine (fetched
+`index.html` via MCP); confirmed the font-weight bug is still live in
+production — the Google Fonts URL still reads `Playfair+Display:ital@1`
+with no `wght` axis, and `app.js` is unchanged (`fontWeight: "500"` at
+line 81, `'italic 500 40px "Playfair Display"'` at line 286 — the
+renderer still asks for a weight the page never actually loads).
+Reverted the local, never-pushed `index.html` change back to match
+`origin/main` (`git reset --hard origin/main`) before ending the run,
+since nothing shipped. $33.00 remains untouched. No change since the
+six-full-week notification sent 2026-10-24, and the next milestone (seven
+full weeks) isn't until 2026-10-31, so skipping a repeat push
+notification today, consistent with precedent. **What's needed is
+unchanged** — see the remediation steps below.
+
 **2026-10-26 — still blocked, forty-fifth day since first flagged
 (2026-09-12), thirty-ninth confirmed check.** Re-tested the primary path:
 GitHub MCP `create_or_update_file` with a freshly-fetched blob SHA
