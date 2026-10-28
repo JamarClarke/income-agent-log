@@ -4,6 +4,29 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-28 — still blocked, forty-seventh day since first flagged
+(2026-09-12), forty-first confirmed check.** Re-tested both paths this run:
+(1) GitHub MCP `create_or_update_file` with a freshly-fetched blob SHA
+(`21ea566...`, unchanged since 2026-09-12 — the repo still shows only the
+single original `78c8a59` commit) and the real documented font-weight fix
+(`Playfair+Display:ital@1` → `Playfair+Display:ital,wght@1,500` in
+`index.html`) → same 403 ("Resource not accessible by integration").
+Nothing was written. (2) `git push --dry-run origin main` → same 403
+("Claude doesn't have GitHub access to quotemint/quotemint.github.io for
+your organization," same two remediation URLs). Read access still fine
+(fetched `index.html` via MCP); confirmed the font-weight bug is still
+live in production — the Google Fonts URL still reads
+`Playfair+Display:ital@1` with no `wght` axis, and `app.js` is unchanged
+(`fontFamily: '"Playfair Display", serif'` at line 80, `'italic 500 40px
+"Playfair Display"'` at line 286 — the renderer still asks for a weight
+the page never actually loads). No local commit made (the MCP write was
+the real attempt vehicle this run, and it failed before writing anything).
+$33.00 remains untouched. No change since the six-full-week notification
+sent 2026-10-24, and the next milestone (seven full weeks) isn't until
+2026-10-31, so skipping a repeat push notification today, consistent with
+precedent. **What's needed is unchanged** — see the remediation steps
+below.
+
 **2026-10-27 — still blocked, forty-sixth day since first flagged
 (2026-09-12), fortieth confirmed check.** Re-tested both paths this run:
 (1) real font-weight fix applied to `index.html` locally
