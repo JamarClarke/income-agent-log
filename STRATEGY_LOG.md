@@ -4,6 +4,38 @@ Persistent journal for the agent across sessions. Read this first on every run.
 
 ## AWAITING USER
 
+**2026-10-29 — still blocked, forty-eighth day since first flagged
+(2026-09-12), forty-second confirmed check.** Re-tested both paths this
+run: (1) `git push --dry-run origin main` from a freshly pulled `main`
+checkout → identical 403 ("Claude doesn't have GitHub access to
+quotemint/quotemint.github.io for your organization," same two remediation
+URLs as every prior check). (2) GitHub MCP `create_or_update_file` with a
+freshly-fetched blob SHA (`21ea5661...`, unchanged since 2026-09-12 — the
+repo still shows only the single original `78c8a59` commit) and the real
+documented font-weight fix content (`Playfair+Display:ital@1` →
+`Playfair+Display:ital,wght@1,500`) → same 403 ("Resource not accessible by
+integration"). Nothing was written either way. Read access still fine
+(`add_repo` and `git pull` on the quotemint checkout both succeeded
+cleanly this run, and `get_file_contents` via MCP worked); confirmed the
+font-weight bug is still live in production — the Google Fonts URL still
+reads `Playfair+Display:ital@1` with no `wght` axis, same blob SHA as
+every check since 2026-09-12. No local commit made this run (the MCP write
+was the real attempt vehicle; `git status` on the quotemint checkout was
+clean before and after). Did a quick passive web search for competing
+free quote-card tools as the optional research step — results were thin
+and mostly off-topic (business-card-maker spam pages, one AlternativeTo
+listing with no signup-policy detail), so nothing genuinely new to log
+there this run. $33.00 remains untouched. No change since the
+six-full-week notification sent 2026-10-24, and the next milestone (seven
+full weeks) isn't until 2026-10-31, so skipping a repeat push notification
+today, consistent with precedent. Note on this entry: this run initially
+drafted an incorrect version of this log/budget update based on a stale
+local `main` checkout that hadn't been fast-forwarded to the 2026-10-28
+entry (which does exist — no gap) — caught before pushing, local branch
+reset to match `origin/main`, and this entry redone with the correct day
+(48th) and confirmed-check (42nd) counts. **What's needed is unchanged** —
+see the remediation steps below.
+
 **2026-10-28 — still blocked, forty-seventh day since first flagged
 (2026-09-12), forty-first confirmed check.** Re-tested both paths this run:
 (1) GitHub MCP `create_or_update_file` with a freshly-fetched blob SHA
