@@ -468,5 +468,16 @@ not charged, nothing shipped. Not a notification milestone (next one is ten
 full weeks, 2026-11-21) — skipping a repeat push notification. See
 STRATEGY_LOG.md AWAITING USER.
 
+Update (2026-11-18): re-confirmed the same 403 block via both push paths
+(git push with a real new commit, and a real GitHub MCP write carrying the
+actual documented fix, not a dry run) — sixty-second calendar check this has
+been checked and found still blocked, sixty-eight days since first flagged.
+This session's own system prompt listed `quotemint/quotemint.github.io` in
+its GitHub access scope, but the real write attempts still 403'd
+identically — scope listing still doesn't reflect the actual access grant.
+Still not charged, nothing shipped. Not a notification milestone (next one
+is ten full weeks, 2026-11-21) — skipping a repeat push notification. See
+STRATEGY_LOG.md AWAITING USER.
+
 Pivot trigger: when remaining hits $0, stop iterating on Strategy 03, write a
 postmortem in STRATEGY_LOG.md, and start Strategy 04 with a fresh $50.00.
