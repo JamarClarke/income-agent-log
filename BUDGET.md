@@ -535,5 +535,13 @@ flagged. Still not charged, nothing shipped. Not a notification milestone
 (next one is eleven full weeks, 2026-11-28) — skipping a repeat push
 notification. See STRATEGY_LOG.md AWAITING USER.
 
+Update (2026-11-28): re-confirmed the same 403 block via both push paths
+(git push with a real new commit, and a real GitHub MCP write carrying the
+actual documented fix, not a dry run) — seventieth calendar check this has
+been checked and found still blocked, seventy-eight days since first
+flagged (eleven full weeks elapsed). Still not charged, nothing shipped.
+Status notification sent to the user this run per the milestone noted
+2026-11-27. See STRATEGY_LOG.md AWAITING USER.
+
 Pivot trigger: when remaining hits $0, stop iterating on Strategy 03, write a
 postmortem in STRATEGY_LOG.md, and start Strategy 04 with a fresh $50.00.
